@@ -2,6 +2,7 @@ import { View, Text, StyleSheet } from 'react-native'
 import theme from '../../theme'
 import Divider from './Divider'
 import ConversionText from './ConversionText'
+import { useState } from 'react'
 
 const style = StyleSheet.create({
 	container: {
@@ -25,16 +26,24 @@ const style = StyleSheet.create({
 const Spacer = () => <View style={style.spacer} />
 
 export default ConversionArea = () => {
+	const [topValue, setTopValue] = useState('3005.12')
+	const [bottomValue, setBottomValue] = useState('83.47')
+
 	return (
 		<View style={style.container}>
-			<ConversionText currencyLabel={'Bs.'} currencyAmount={'3005.12'} />
+			<ConversionText
+				currencyLabel={'Bs.'}
+				currencyAmount={topValue}
+				setValue={setTopValue}
+			/>
 			<Spacer />
 			<Divider />
 			<Spacer />
 			<ConversionText
 				currencyLabel={'USD'}
-				currencyAmount={'83.47'}
+				currencyAmount={bottomValue}
 				currencyPrefix={'$'}
+				setValue={setBottomValue}
 			/>
 		</View>
 	)
