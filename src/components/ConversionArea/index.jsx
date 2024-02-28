@@ -1,8 +1,4 @@
 import { View, Text, StyleSheet } from 'react-native'
-import theme from '../../theme'
-import Divider from './Divider'
-import ConversionText from './ConversionText'
-import RateInfo from './RateInfo'
 import { useSelector } from 'react-redux'
 import {
 	updateFromValue,
@@ -10,6 +6,12 @@ import {
 	calculateNewFrom,
 	calculateNewTo,
 } from '../../reducers/conversionReducer'
+
+import theme from '../../theme'
+import Divider from './Divider'
+import ConversionText from './ConversionText'
+import RateInfo from './RateInfo'
+import CopyButton from './CopyButton'
 
 const style = StyleSheet.create({
 	parent: {
@@ -34,6 +36,12 @@ const style = StyleSheet.create({
 	spacer: {
 		height: 10,
 	},
+	buttonsContainer: {
+		flexDirection: 'row',
+		width: '100%',
+		justifyContent: 'space-evenly',
+		marginTop: 10,
+	},
 })
 
 const Spacer = () => <View style={style.spacer} />
@@ -42,7 +50,6 @@ export default ConversionArea = () => {
 	const { fromCurrency, toCurrency, toValue, fromValue } = useSelector(
 		state => state.conversions
 	)
-	console.log('current values', fromValue, toValue)
 	return (
 		<View style={style.parent}>
 			<View style={style.container}>
@@ -64,6 +71,10 @@ export default ConversionArea = () => {
 				/>
 			</View>
 			<RateInfo />
+			<View style={style.buttonsContainer}>
+				<CopyButton buttonLabel={fromCurrency} buttonValue={fromValue} />
+				<CopyButton buttonLabel={toCurrency} buttonValue={toValue} />
+			</View>
 		</View>
 	)
 }
