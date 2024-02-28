@@ -2,9 +2,22 @@ import { View, Text, StyleSheet } from 'react-native'
 import theme from '../../theme'
 import Divider from './Divider'
 import ConversionText from './ConversionText'
-import { useState } from 'react'
+import RateInfo from './RateInfo'
+import { useSelector } from 'react-redux'
+import {
+	updateFromValue,
+	updateToValue,
+	calculateNewFrom,
+	calculateNewTo,
+} from '../../reducers/conversionReducer'
 
 const style = StyleSheet.create({
+	parent: {
+		display: 'flex',
+		flexDirection: 'column',
+		width: '100%',
+		alignItems: 'center',
+	},
 	container: {
 		backgroundColor: theme.colors.backgroundLight,
 		width: '100%',
@@ -12,7 +25,7 @@ const style = StyleSheet.create({
 		flexDirection: 'column',
 		alignItems: 'center',
 		justifyContent: 'center',
-		height: '45%',
+		height: 300,
 	},
 	text: {
 		color: theme.colors.primaryFont,
@@ -26,25 +39,31 @@ const style = StyleSheet.create({
 const Spacer = () => <View style={style.spacer} />
 
 export default ConversionArea = () => {
-	const [topValue, setTopValue] = useState('3005.12')
-	const [bottomValue, setBottomValue] = useState('83.47')
-
+	const { fromCurrency, toCurrency, toValue, fromValue } = useSelector(
+		state => state.conversions
+	)
+	console.log('current values', fromValue, toValue)
 	return (
-		<View style={style.container}>
-			<ConversionText
-				currencyLabel={'Bs.'}
-				currencyAmount={topValue}
-				setValue={setTopValue}
-			/>
-			<Spacer />
-			<Divider />
-			<Spacer />
-			<ConversionText
-				currencyLabel={'USD'}
-				currencyAmount={bottomValue}
-				currencyPrefix={'$'}
-				setValue={setBottomValue}
-			/>
+		<View style={style.parent}>
+			<View style={style.container}>
+				<ConversionText
+					currencyLabel={fromCurrency}
+					currencyAmount={fromValue}
+					currencyPrefix={'$'}
+					action={updateFromValue}
+					convertAction={calculateNewTo}
+				/>
+				<Spacer />
+				<Divider />
+				<Spacer />
+				<ConversionText
+					currencyLabel={toCurrency}
+					currencyAmount={toValue}
+					action={updateToValue}
+					convertAction={calculateNewFrom}
+				/>
+			</View>
+			<RateInfo />
 		</View>
 	)
 }
