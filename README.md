@@ -1,6 +1,8 @@
 # TasaVE
 Currency converter app to simplify calculations between national and foreign currencies for Venezuelans
 
+You can access the repo for the backend [here](https://github.com/dmorenog01/tasave-native-backend)
+
 ## TODO
 ### Functionality
 
