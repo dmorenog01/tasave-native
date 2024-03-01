@@ -16,4 +16,3 @@ You can access the repo for the backend [here](https://github.com/dmorenog01/tas
 - Button animations
 - Haptics
 - Sound
-- Font
