@@ -1,4 +1,6 @@
-import { Platform } from "react-native"
+import Constants from 'expo-constants';
+
+const isGoBuild = Constants.appOwnership === 'expo';
 
 const theme = {
     colors: {
@@ -7,14 +9,13 @@ const theme = {
         backgroundLight: '#232A2D',
         backgroundDark: '#171b1d',
         accent: '#00F327',
+        button: '#354850'
     },
     fonts: {
-        main: 'CascadiaMono',
-        // main: 'Roboto',
-        bold: 'CascadiaMono-Bold',
-        // bold: 'Roboto',
-        semibold: 'CascadiaMono-SemiBold',
-        semilight: 'CascadiaMono-SemiLight'
+        main: isGoBuild ? 'System font': 'CascadiaMono',
+        bold: isGoBuild ? 'System font':'CascadiaMono-Bold',
+        semibold: isGoBuild ? 'System font':'CascadiaMono-SemiBold',
+        semilight: isGoBuild ? 'System font':'CascadiaMono-SemiLight'
     },
     fontSizes: {
         conversionScreen: 40,

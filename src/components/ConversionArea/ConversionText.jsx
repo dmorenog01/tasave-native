@@ -27,6 +27,11 @@ const style = StyleSheet.create({
 		flexGrow: 1,
 		justifyContent: 'flex-end',
 	},
+	leftText: {
+		fontSize: theme.fontSizes.conversionScreenCurrency,
+		textAlignVertical: 'center',
+		textAlign: 'left',
+	},
 })
 
 export default ConversionText = ({
@@ -57,7 +62,7 @@ export default ConversionText = ({
 
 	return (
 		<View style={style.container}>
-			<Text style={style.text}>{currencyLabel}</Text>
+			<Text style={[style.text, style.leftText]}>{currencyLabel}</Text>
 			<View style={style.numberContainer}>
 				<Text style={style.text}>{currencyPrefix}</Text>
 				<TextInput

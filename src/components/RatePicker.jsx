@@ -12,11 +12,10 @@ const styles = StyleSheet.create({
 	},
 	container: {
 		width: '50%',
-		backgroundColor: 'black',
-		borderColor: theme.colors.primaryFont,
-		borderWidth: 3,
+		backgroundColor: 'transparent',
 		borderRadius: 5,
 		marginTop: 10,
+		textAlign: 'center',
 	},
 })
 

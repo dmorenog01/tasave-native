@@ -71,13 +71,14 @@ export default ConversionArea = () => {
 					action={updateToValue}
 					convertAction={calculateNewFrom}
 				/>
+				<RatePicker />
 			</View>
-			<RatePicker />
-			<RateInfo />
+
 			<View style={style.buttonsContainer}>
 				<CopyButton buttonLabel={fromCurrency} buttonValue={fromValue} />
 				<CopyButton buttonLabel={toCurrency} buttonValue={toValue} />
 			</View>
+			<RateInfo />
 		</View>
 	)
 }
