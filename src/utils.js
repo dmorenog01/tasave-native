@@ -14,4 +14,36 @@ const removeZerosFromLeft = text => {
     return text.substring(sliceFrom)
 }
 
-export default { toNumber, removeZerosFromLeft }
+const formatFloat = num => {
+    return num.toFixed(3)
+}
+
+const getOptions = rates => {
+    const options = []
+    Object.keys(rates).forEach(fromCurrency => {
+        Object.keys(rates[fromCurrency]).forEach(toCurrency => {
+            options.push(`${fromCurrency}-${toCurrency}`)
+        })
+    })
+    return options
+}
+
+const getCurrenciesFromString = str => {
+    const [fromCurrency, toCurrency] = str.split('-')
+    return { fromCurrency, toCurrency }
+}
+
+const parseFirestoreDate = dateObject => {
+    const date = new Date(dateObject._seconds * 1000 + dateObject._nanoseconds / 1000000)
+    // Convert to UTC-4
+    return new Date(date.getTime() + 14400000)
+}
+
+const dateInSecondsToString = dateObject => {
+    // Convert firestore date object  to venezuela date
+    const date = parseFirestoreDate(dateObject)
+    const formattedDate = date.toLocaleDateString();
+    return formattedDate
+}
+
+export default { toNumber, removeZerosFromLeft, formatFloat, getOptions, getCurrenciesFromString, dateInSecondsToString }

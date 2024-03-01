@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      ["expo-font",
+      {
+        "fonts": ["./assets/fonts/CascadiaMono.otf", "./assets/fonts/CascadiaMono-Bold.otf", "./assets/fonts/CascadiaMono-SemiBold.otf", "./assets/fonts/CascadiaMono-SemiLight.otf"]
+      }]
+    ]
   }
 }

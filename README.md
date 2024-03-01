@@ -5,13 +5,13 @@ Currency converter app to simplify calculations between national and foreign cur
 ### Functionality
 
 - Add routing and other screens (graph, rate, info pages) Expo Router
-- Implement API service
-- Expand size of text input fields
-- Rate selection dropdown SDK
+- numbers should be stored as floats and displayed as strings to preserve precision
 
 ### Look/Feel
+- Fix Dropdown styling
+- Fix Copy Buttons
 - Loading animations
 - Button animations
-- Haptics SDK
-- Sound SDK
-- Font SDK
+- Haptics
+- Sound
+- Font

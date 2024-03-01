@@ -12,6 +12,7 @@ import Divider from './Divider'
 import ConversionText from './ConversionText'
 import RateInfo from './RateInfo'
 import CopyButton from './CopyButton'
+import RatePicker from '../RatePicker'
 
 const style = StyleSheet.create({
 	parent: {
@@ -32,6 +33,7 @@ const style = StyleSheet.create({
 	text: {
 		color: theme.colors.primaryFont,
 		fontSize: theme.fontSizes.conversionScreen,
+		fontFamily: theme.fonts.main,
 	},
 	spacer: {
 		height: 10,
@@ -56,7 +58,6 @@ export default ConversionArea = () => {
 				<ConversionText
 					currencyLabel={fromCurrency}
 					currencyAmount={fromValue}
-					currencyPrefix={'$'}
 					action={updateFromValue}
 					convertAction={calculateNewTo}
 				/>
@@ -64,12 +65,14 @@ export default ConversionArea = () => {
 				<Divider />
 				<Spacer />
 				<ConversionText
+					currencyPrefix={'$'}
 					currencyLabel={toCurrency}
 					currencyAmount={toValue}
 					action={updateToValue}
 					convertAction={calculateNewFrom}
 				/>
 			</View>
+			<RatePicker />
 			<RateInfo />
 			<View style={style.buttonsContainer}>
 				<CopyButton buttonLabel={fromCurrency} buttonValue={fromValue} />

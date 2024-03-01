@@ -5,10 +5,8 @@ import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 const style = StyleSheet.create({
-	parent: {
-		width: '100%',
-	},
 	container: {
+		paddingHorizontal: 40,
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'space-around',
@@ -17,13 +15,17 @@ const style = StyleSheet.create({
 	text: {
 		color: theme.colors.primaryFont,
 		fontSize: theme.fontSizes.conversionScreen,
+		fontFamily: theme.fonts.main,
 	},
 	input: {
 		color: theme.colors.primaryFont,
 		fontSize: theme.fontSizes.conversionScreen,
+		fontFamily: theme.fonts.main,
 	},
 	numberContainer: {
 		flexDirection: 'row',
+		flexGrow: 1,
+		justifyContent: 'flex-end',
 	},
 })
 
@@ -65,6 +67,7 @@ export default ConversionText = ({
 					onChangeText={onChange}
 					onFocus={() => setIsEditing(true)}
 					onBlur={() => setIsEditing(false)}
+					selectTextOnFocus
 				/>
 			</View>
 		</View>

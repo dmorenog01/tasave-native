@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
 	main: {
 		color: theme.colors.primaryFont,
 		fontSize: theme.fontSizes.title,
+		fontFamily: theme.fonts.main,
 	},
 })
 

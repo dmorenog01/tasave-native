@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import utils from "../utils";
 
 const conversionSlice = createSlice({
     name: 'conversions',
     initialState: {
-        fromCurrency: 'USD',
+        fromCurrency: 'Bs',
         toCurrency: 'BCV',
         fromValue: '0',
         toValue: '0'
@@ -21,6 +22,10 @@ const conversionSlice = createSlice({
         updateToValue(state, action) {
             return { ...state, toValue: action.payload }
         },
+        updateSelectedCurrencies(state, action) {
+            const { fromCurrency, toCurrency } = action.payload
+            return {...state, fromCurrency, toCurrency}
+        },
         setState(_, action) {
             return action.payload
         }
@@ -28,16 +33,16 @@ const conversionSlice = createSlice({
 })
 
 export default conversionSlice.reducer
-export const { changeSelectedFromCurrency, changeSelectedToCurrency, updateFromValue, updateToValue, setState } = conversionSlice.actions
+export const { changeSelectedFromCurrency, changeSelectedToCurrency, updateFromValue, updateToValue, setState, updateSelectedCurrencies } = conversionSlice.actions
 
 export const calculateNewTo = (newFrom) => {
     return function calculateNewToThunk (dispatch, getStore) {
         const state = getStore()
         const { fromCurrency, toCurrency } = state.conversions
-        const rate = state.rates[fromCurrency][toCurrency]['rate']
+        const rate = state.rates.rates[fromCurrency][toCurrency]['rate']
 
-        const newNumericFrom = Number(newFrom).toFixed(2)
-        const newNumericTo = (rate * newNumericFrom).toFixed(2)
+        const newNumericFrom = utils.formatFloat(Number(newFrom))
+        const newNumericTo = utils.formatFloat(newNumericFrom / rate)
 
         const newStringFrom = String(newNumericFrom)
         const newStringTo = String(newNumericTo)
@@ -51,10 +56,10 @@ export const calculateNewFrom = (newTo) => {
     return function calculateNewToThunk (dispatch, getStore) {
         const state = getStore()
         const { fromCurrency, toCurrency } = state.conversions
-        const rate = state.rates[fromCurrency][toCurrency]['rate']
+        const rate = state.rates.rates[fromCurrency][toCurrency]['rate']
 
-        const newNumericTo = Number(newTo).toFixed(2)
-        const newNumericFrom = (newNumericTo / rate).toFixed(2)
+        const newNumericTo = utils.formatFloat(Number(newTo))
+        const newNumericFrom = utils.formatFloat(newNumericTo * rate)
 
         const newStringFrom = String(newNumericFrom)
         const newStringTo = String(newNumericTo)

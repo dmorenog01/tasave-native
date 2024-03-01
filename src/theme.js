@@ -1,4 +1,5 @@
-// import { Platform } from "react-native"
+import { Platform } from "react-native"
+
 const theme = {
     colors: {
         primaryFont: '#FFFFFF',
@@ -8,10 +9,16 @@ const theme = {
         accent: '#00F327',
     },
     fonts: {
-        main: 'Cascadia Mono'
+        main: 'CascadiaMono',
+        // main: 'Roboto',
+        bold: 'CascadiaMono-Bold',
+        // bold: 'Roboto',
+        semibold: 'CascadiaMono-SemiBold',
+        semilight: 'CascadiaMono-SemiLight'
     },
     fontSizes: {
         conversionScreen: 40,
+        conversionScreenCurrency: 30,
         title: 32,
         button: 20,
         dropdown: 18
