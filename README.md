@@ -4,7 +4,7 @@ Currency converter app to simplify calculations between national and foreign cur
 You can access the repo for the backend [here](https://github.com/dmorenog01/tasave-native-backend)
 
 
-![App preview](rsz_app_preview.png)
+![App preview](rsz_app_preview2.png)
 
 ## TODO
 ### Functionality

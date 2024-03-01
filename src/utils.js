@@ -15,7 +15,7 @@ const removeZerosFromLeft = text => {
 }
 
 const formatFloat = num => {
-    return num.toFixed(3)
+    return num.toFixed(2)
 }
 
 const getOptions = rates => {
