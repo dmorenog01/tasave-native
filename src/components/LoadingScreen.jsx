@@ -1,12 +1,14 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import theme from '../theme'
+import SvgDot from './SvgDot'
 
 const styles = StyleSheet.create({
 	container: {
-		flexDirection: 'column',
+		flexDirection: 'row',
 		flexGrow: 1,
 		width: '100%',
 		justifyContent: 'center',
+		alignItems: 'center',
 	},
 	text: {
 		color: theme.colors.primaryFont,
@@ -15,10 +17,18 @@ const styles = StyleSheet.create({
 	},
 })
 
+const VerticalSpacer = ({ width = 10 }) => {
+	return <View style={{ width }}></View>
+}
+
 export default LoadingScreen = () => {
 	return (
 		<View style={styles.container}>
-			<Text style={styles.text}>Loading...</Text>
+			<SvgDot />
+			<VerticalSpacer />
+			<SvgDot delay={100} />
+			<VerticalSpacer />
+			<SvgDot delay={200} />
 		</View>
 	)
 }

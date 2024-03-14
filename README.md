@@ -9,7 +9,7 @@ You can access the repo for the backend [here](https://github.com/dmorenog01/tas
 ## TODO
 ### Functionality
 
-- add icon
+- add icon (Done)
 - add splash screen
 - fix rate info to make it more descriptive
 - store last rates in localstorage for offline use
@@ -19,8 +19,7 @@ You can access the repo for the backend [here](https://github.com/dmorenog01/tas
 
 ### Look/Feel
 - Fix Dropdown styling
-- Fix Copy Buttons
-- Loading animations
-- Button animations
+- Fix Copy Buttons (Done)
+- Loading animations (Done)
+- Button animations (Done)
 - Haptics
-- Sound

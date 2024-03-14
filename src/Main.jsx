@@ -22,6 +22,7 @@ export default function Main() {
 		<View style={styles.container}>
 			<Logo />
 			{loading || error ? <LoadingScreen /> : <ConversionArea />}
+			{/* <LoadingScreen /> */}
 			<StatusBar style='light' />
 		</View>
 	)
