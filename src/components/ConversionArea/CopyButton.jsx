@@ -43,7 +43,7 @@ export default CopyButton = ({
 	const copyToClipboard = async () => {
 		scaleValue.setValue(0.9)
 		scaleAnimation.start()
-		await Clipboard.setStringAsync(buttonValue)
+		await Clipboard.setStringAsync(String(buttonValue.toFixed(2)))
 		console.log('Copied to clipboard!')
 	}
 

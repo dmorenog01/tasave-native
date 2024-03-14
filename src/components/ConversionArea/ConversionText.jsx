@@ -51,14 +51,12 @@ export default ConversionText = ({
 		const num = utils.toNumber(replacedText)
 		if (!isNaN(num)) {
 			setEditingString(replacedText)
-			dispatch(action(replacedText))
 		}
 	}
 
 	useEffect(() => {
-		if (!isEditing) {
-			setEditingString(currencyAmountString)
-		}
+		console.log('run use effect')
+		setEditingString(currencyAmountString)
 	}, [currencyAmountString])
 
 	useEffect(() => {
@@ -80,8 +78,14 @@ export default ConversionText = ({
 					value={isEditing ? editingString : currencyAmountString}
 					keyboardType='decimal-pad'
 					onChangeText={onChange}
-					onFocus={() => setIsEditing(true)}
-					onBlur={() => setIsEditing(false)}
+					onFocus={() => {
+						setIsEditing(true)
+						setEditingString(currencyAmountString)
+					}}
+					onBlur={() => {
+						setIsEditing(false)
+						dispatch(action(editingString))
+					}}
 					selectTextOnFocus
 				/>
 			</View>
