@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { useSelector } from 'react-redux'
 import {
 	updateFromValue,
@@ -52,7 +52,6 @@ export default ConversionArea = () => {
 	const { fromCurrency, toCurrency, toValue, fromValue } = useSelector(
 		state => state.conversions
 	)
-	console.log(fromValue, toValue)
 
 	return (
 		<View style={style.parent}>

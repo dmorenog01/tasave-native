@@ -12,10 +12,10 @@ const theme = {
         button: '#354850'
     },
     fonts: {
-        main: isGoBuild ? 'System font': 'CascadiaMono',
-        bold: isGoBuild ? 'System font':'CascadiaMono-Bold',
-        semibold: isGoBuild ? 'System font':'CascadiaMono-SemiBold',
-        semilight: isGoBuild ? 'System font':'CascadiaMono-SemiLight'
+        main: isGoBuild ? 'System': 'CascadiaMono',
+        bold: isGoBuild ? 'System':'CascadiaMono-Bold',
+        semibold: isGoBuild ? 'System':'CascadiaMono-SemiBold',
+        semilight: isGoBuild ? 'System':'CascadiaMono-SemiLight'
     },
     fontSizes: {
         conversionScreen: 40,

@@ -55,7 +55,6 @@ export default ConversionText = ({
 	}
 
 	useEffect(() => {
-		console.log('run use effect')
 		setEditingString(currencyAmountString)
 	}, [currencyAmountString])
 
