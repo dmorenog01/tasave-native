@@ -14,7 +14,10 @@ You can access the repo for the backend [here](https://github.com/dmorenog01/tas
 - fix rate info to make it more descriptive
 - store last rates in localstorage for offline use
 - Add routing and other screens (graph, rate, info pages) Expo Router
-- numbers should be stored as floats and displayed as strings to preserve precision
+
+- numbers should be stored as floats and displayed as strings to preserve precision. (Done)
+- calculation should be updated when rate is changed.
+
 - fix name when number is too big
 
 ### Look/Feel

@@ -6,8 +6,8 @@ const conversionSlice = createSlice({
     initialState: {
         fromCurrency: 'Bs',
         toCurrency: 'BCV',
-        fromValue: '0',
-        toValue: '0'
+        fromValue: 0,
+        toValue: 0
     },
     reducers: {
         changeSelectedFromCurrency(state, action) {
@@ -17,10 +17,10 @@ const conversionSlice = createSlice({
             return { ...state, toCurrency: action.payload }
         },
         updateFromValue(state, action) {
-            return { ...state, fromValue: action.payload }
+            return { ...state, fromValue: Number(action.payload) }
         },
         updateToValue(state, action) {
-            return { ...state, toValue: action.payload }
+            return { ...state, toValue: Number(action.payload) }
         },
         updateSelectedCurrencies(state, action) {
             const { fromCurrency, toCurrency } = action.payload
@@ -41,14 +41,25 @@ export const calculateNewTo = (newFrom) => {
         const { fromCurrency, toCurrency } = state.conversions
         const rate = state.rates.rates[fromCurrency][toCurrency]['rate']
 
-        const newNumericFrom = utils.formatFloat(Number(newFrom))
-        const newNumericTo = utils.formatFloat(newNumericFrom / rate)
+        const newNumberFrom = Number(newFrom)
+        const newTo = newNumberFrom / rate
 
-        const newStringFrom = String(newNumericFrom)
-        const newStringTo = String(newNumericTo)
+        dispatch(setState({...state.conversions, fromValue: newNumberFrom, toValue: newTo}))
 
-        dispatch(setState({...state.conversions, fromValue: newStringFrom, toValue: newStringTo}))
+    }
+}
 
+export const updateAndRecalculate = (payload) => {
+    return function updateAndRecalculateThunk (dispatch, getStore) {
+        const state = getStore()
+        const { fromCurrency, toCurrency} = payload
+        const { fromValue } = state.conversions
+
+        const rate = state.rates.rates[fromCurrency][toCurrency]['rate']
+
+        const toValue = fromValue / rate;
+
+        dispatch(setState({fromCurrency, toCurrency, fromValue, toValue}))
     }
 }
 
@@ -58,13 +69,10 @@ export const calculateNewFrom = (newTo) => {
         const { fromCurrency, toCurrency } = state.conversions
         const rate = state.rates.rates[fromCurrency][toCurrency]['rate']
 
-        const newNumericTo = utils.formatFloat(Number(newTo))
-        const newNumericFrom = utils.formatFloat(newNumericTo * rate)
+        const newNumberTo = Number(newTo)
+        const newFrom = rate * newNumberTo
 
-        const newStringFrom = String(newNumericFrom)
-        const newStringTo = String(newNumericTo)
-
-        dispatch(setState({...state.conversions, fromValue: newStringFrom, toValue: newStringTo}))
+        dispatch(setState({...state.conversions, fromValue: newFrom, toValue: newNumberTo}))
 
     }
 }

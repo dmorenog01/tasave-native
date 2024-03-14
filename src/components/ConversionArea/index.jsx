@@ -52,6 +52,8 @@ export default ConversionArea = () => {
 	const { fromCurrency, toCurrency, toValue, fromValue } = useSelector(
 		state => state.conversions
 	)
+	console.log(fromValue, toValue)
+
 	return (
 		<View style={style.parent}>
 			<View style={style.container}>

@@ -2,7 +2,7 @@ import { View, StyleSheet } from 'react-native'
 import theme from '../theme'
 import { useSelector, useDispatch } from 'react-redux'
 import { Picker } from '@react-native-picker/picker'
-import { updateSelectedCurrencies } from '../reducers/conversionReducer'
+import { updateAndRecalculate } from '../reducers/conversionReducer'
 import utils from '../utils'
 
 const styles = StyleSheet.create({
@@ -35,7 +35,7 @@ export default RatePicker = () => {
 				style={styles.picker}
 				onValueChange={value => {
 					const currencies = utils.getCurrenciesFromString(value)
-					dispatch(updateSelectedCurrencies(currencies))
+					dispatch(updateAndRecalculate(currencies))
 				}}
 				dropdownIconColor={theme.colors.accent}
 				dropdownIconRippleColor={'rgba(0,0,0,0)'}
