@@ -16,7 +16,7 @@ You can access the repo for the backend [here](https://github.com/dmorenog01/tas
 - Add routing and other screens (graph, rate, info pages) Expo Router
 
 - numbers should be stored as floats and displayed as strings to preserve precision. (Done)
-- calculation should be updated when rate is changed.
+- calculation should be updated when rate is changed. (Done)
 
 - fix name when number is too big
 

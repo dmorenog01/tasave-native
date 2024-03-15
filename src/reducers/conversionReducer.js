@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import utils from "../utils";
 
 const conversionSlice = createSlice({
     name: 'conversions',
