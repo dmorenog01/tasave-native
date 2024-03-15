@@ -7,7 +7,7 @@ import {
 	calculateNewTo,
 } from '../../reducers/conversionReducer'
 
-import theme from '../../theme'
+import theme from '../../utils/theme'
 import Divider from './Divider'
 import ConversionText from './ConversionText'
 import RateInfo from './RateInfo'

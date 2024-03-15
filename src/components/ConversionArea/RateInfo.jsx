@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from 'react-native'
 import { useSelector } from 'react-redux'
-import theme from '../../theme'
-import utils from '../../utils'
+import theme from '../../utils/theme'
+import utils from '../../utils/utils'
 
 const styles = StyleSheet.create({
 	container: {

@@ -1,5 +1,5 @@
 import { View, StyleSheet } from 'react-native'
-import theme from '../theme'
+import theme from '../utils/theme'
 import SvgDot from './SvgDot'
 
 const styles = StyleSheet.create({

@@ -1,5 +1,5 @@
 import { Animated, View, Text, StyleSheet, Pressable } from 'react-native'
-import theme from '../../theme'
+import theme from '../../utils/theme'
 import * as Clipboard from 'expo-clipboard'
 import { useRef } from 'react'
 

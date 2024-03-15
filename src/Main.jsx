@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { initializeRates } from './reducers/ratesReducer'
 
-import theme from './theme'
+import theme from './utils/theme'
 import Logo from './components/Logo'
 import ConversionArea from './components/ConversionArea'
 import LoadingScreen from './components/LoadingScreen'

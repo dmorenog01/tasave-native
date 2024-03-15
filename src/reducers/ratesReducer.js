@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import apiService from "../services/apiService";
+import RateStorage from "../utils/RateStorage";
+
+const rateStorage = new RateStorage();
 
 const initialState = {
     rates: null,
@@ -38,9 +41,22 @@ export const initializeRates = () => {
         try {
             const rates = await apiService.getRates()
             dispatch(setState({rates, loading: false, error: false}))
+            await rateStorage.setRates(rates)
+            return
         } catch (error) {
-            console.error('error', error.message);
-            dispatch(setErrorAndLoading({error: true, loading: false}))
+            // In case of error check asyncStorage for a rate
+            console.error('Error loading data from API', error.message);
+            const localRates = await rateStorage.getRates()
+            if (Object.keys(localRates).length === 0) {
+                // If AsyncStorage is empty, set error to true
+                dispatch(setErrorAndLoading({error: true, loading: false}))
+                console.error('AsyncStorage is empty')
+            } else {
+                // Get rate from AsyncStorage
+                dispatch(setState({rates: localRates, loading: false, error: false}))
+            }
         }
+
+
     }
 }

@@ -1,9 +1,9 @@
 import { View, StyleSheet } from 'react-native'
-import theme from '../theme'
+import theme from '../utils/theme'
 import { useSelector, useDispatch } from 'react-redux'
 import { Picker } from '@react-native-picker/picker'
 import { updateAndRecalculate } from '../reducers/conversionReducer'
-import utils from '../utils'
+import utils from '../utils/utils'
 
 const styles = StyleSheet.create({
 	picker: {

@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TextInput } from 'react-native'
-import theme from '../../theme'
-import utils from '../../utils'
+import theme from '../../utils/theme'
+import utils from '../../utils/utils'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
