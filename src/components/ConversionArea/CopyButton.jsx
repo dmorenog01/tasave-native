@@ -1,22 +1,13 @@
 import { Animated, View, Text, StyleSheet, Pressable } from 'react-native'
 import theme from '../../utils/theme'
+import defaultStyles from '../../utils/defaultStyles'
 import * as Clipboard from 'expo-clipboard'
 import { useRef } from 'react'
 
 const styles = StyleSheet.create({
-	shadowUnpressed: {
-		shadowRadius: '10',
-		shadowColor: 'black',
-		shadowOpacity: 1,
-		elevation: 4,
-	},
 	container: {
-		flexDirection: 'column',
 		width: 124,
 		height: 44,
-		borderRadius: 5,
-		alignItems: 'center',
-		backgroundColor: theme.colors.button,
 	},
 	text: {
 		width: '100%',
@@ -52,7 +43,8 @@ export default CopyButton = ({
 			<Animated.View
 				style={[
 					styles.container,
-					styles.shadowUnpressed,
+					defaultStyles.button1,
+					defaultStyles.button1Shadow,
 					{ transform: [{ scale: scaleValue }] },
 				]}
 			>

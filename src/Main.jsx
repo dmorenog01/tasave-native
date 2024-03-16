@@ -21,8 +21,7 @@ export default function Main() {
 	return (
 		<View style={styles.container}>
 			<Logo />
-			{loading || error ? <LoadingScreen /> : <ConversionArea />}
-			{/* <LoadingScreen /> */}
+			{loading ? <LoadingScreen /> : <ConversionArea />}
 			<StatusBar style='light' />
 		</View>
 	)

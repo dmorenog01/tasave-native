@@ -13,6 +13,7 @@ import ConversionText from './ConversionText'
 import RateInfo from './RateInfo'
 import CopyButton from './CopyButton'
 import RatePicker from '../RatePicker'
+import UpdateRateButton from '../UpdateRateButton'
 
 const style = StyleSheet.create({
 	parent: {
@@ -35,9 +36,6 @@ const style = StyleSheet.create({
 		fontSize: theme.fontSizes.conversionScreen,
 		fontFamily: theme.fonts.main,
 	},
-	spacer: {
-		height: 10,
-	},
 	buttonsContainer: {
 		flexDirection: 'row',
 		width: '100%',
@@ -46,7 +44,7 @@ const style = StyleSheet.create({
 	},
 })
 
-const Spacer = () => <View style={style.spacer} />
+const Spacer = ({ height = 10 }) => <View style={{ height }} />
 
 export default ConversionArea = () => {
 	const { fromCurrency, toCurrency, toValue, fromValue } = useSelector(
@@ -74,11 +72,13 @@ export default ConversionArea = () => {
 				/>
 				<RatePicker />
 			</View>
-
+			<Spacer height={40} />
 			<View style={style.buttonsContainer}>
 				<CopyButton buttonLabel={fromCurrency} buttonValue={fromValue} />
+				<UpdateRateButton />
 				<CopyButton buttonLabel={toCurrency} buttonValue={toValue} />
 			</View>
+			<Spacer />
 			<RateInfo />
 		</View>
 	)

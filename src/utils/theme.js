@@ -9,7 +9,8 @@ const theme = {
         backgroundLight: '#232A2D',
         backgroundDark: '#171b1d',
         accent: '#00F327',
-        button: '#354850'
+        button: '#354850',
+        button2: '#232A2D',
     },
     fonts: {
         main: isGoBuild ? 'System': 'CascadiaMono',

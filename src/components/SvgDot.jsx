@@ -19,16 +19,12 @@ const SvgDot = ({ delay = 0 }) => {
 		useNativeDriver: 'true',
 	})
 
-	const animationSequence = Animated.sequence([
-		upAnimation,
-		downAnimation,
-		Animated.delay(300 - delay),
-	])
-
-	const animationLoop = Animated.loop(animationSequence)
+	const animation = Animated.loop(
+		Animated.sequence([upAnimation, downAnimation, Animated.delay(300 - delay)])
+	)
 
 	useEffect(() => {
-		animationLoop.start()
+		animation.start()
 	}, [])
 
 	return (

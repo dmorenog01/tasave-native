@@ -60,3 +60,15 @@ export const initializeRates = () => {
 
     }
 }
+
+export const updateRates = () => {
+    return async (dispatch, getStore) => {
+        try {
+            const rates = await apiService.getRates()
+            dispatch(setState({rates, loading: false, error: false}))
+            console.log('Rates refreshed');
+        } catch (error) {
+            console.error('Could not refresh Rates');
+        }
+    }
+}

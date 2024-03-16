@@ -9,20 +9,22 @@ You can access the repo for the backend [here](https://github.com/dmorenog01/tas
 ## TODO
 ### Functionality
 
-- add icon (Done)
+- add a button to reload the rates
 - add splash screen
 - fix rate info to make it more descriptive
-- store last rates in localstorage for offline use
 - Add routing and other screens (graph, rate, info pages) Expo Router
 
+- add icon (Done)
+- store last rates in localstorage for offline use (Done)
 - numbers should be stored as floats and displayed as strings to preserve precision. (Done)
 - calculation should be updated when rate is changed. (Done)
 
-- fix name when number is too big
-
 ### Look/Feel
 - Fix Dropdown styling
+- fix name when number is too big
+- Haptics
+
 - Fix Copy Buttons (Done)
 - Loading animations (Done)
 - Button animations (Done)
-- Haptics
+

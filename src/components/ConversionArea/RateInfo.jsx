@@ -25,7 +25,9 @@ export default RateInfo = () => {
 
 	return (
 		<View style={styles.container}>
-			<Text style={[styles.text, styles.topText]}>{rateString}</Text>
+			<Text style={[styles.text, styles.topText]}>
+				{toCurrency} {rateString}
+			</Text>
 			<Text style={styles.text}>{dateString}</Text>
 		</View>
 	)
