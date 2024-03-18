@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "tasave-native",
+    "name": "TasaVE",
     "slug": "tasave-native",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -18,10 +18,6 @@
       "supportsTablet": true
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
       "package": "com.dmorenodev.tasavenative"
     },
     "web": {
@@ -37,6 +33,11 @@
           ]
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "2ca7e0f2-0baa-4010-bc29-b91506a32f30"
+      }
+    }
   }
 }

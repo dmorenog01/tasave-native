@@ -33,15 +33,15 @@ export default UpdateRateButton = () => {
 	})
 
 	const onTap = () => {
-		setIsLoading(true)
-
 		scaleValue.setValue(0.9)
-		rotateAnim.setValue(0)
-
 		scaleAnimation.start()
-		loadingAnimation.start()
-
-		dispatch(updateRates())
+		if (!isLoading) {
+			setIsLoading(true)
+			rotateAnim.setValue(0)
+			loadingAnimation.start()
+			dispatch(updateRates())
+			setIsLoading(false)
+		}
 	}
 
 	return (
